@@ -1,6 +1,9 @@
-# Kali Linux Frida Development Environment Setup
+# Brida Prerequisities Installation Script
 
-An automated bash script to set up a complete Frida development environment on Kali Linux with precise version control and proper isolation between virtual environment and system-wide components.
+An automated bash script to set up a complete Brida development environment on Kali Linux with precise version control and proper isolation between virtual environment and system-wide components.
+Setting up Brida is a pain in the ass and starting from the Frida version 17, it has changed a lot according to the frida blog, brida version 0.6 is not compatible with the latest version of frida. 
+So, this script will install the working stable version of python, frida and frida-tools that are well compatible with Brida version 0.6
+Frida API Version Changes - https://frida.re/news/2025/05/17/frida-17-0-0-released/
 
 ## 🎯 What This Script Does
 
@@ -28,13 +31,6 @@ Virtual Environment (~/Downloads/brida/venv):
 ├── frida-tools 13.2.1
 └── Pyro4
 ```
-
-## 📋 Prerequisites
-
-- **Kali Linux** (tested on latest version)
-- **Internet connection** for downloading packages
-- **Sudo privileges** (script will check and prompt)
-- **At least 2GB free space** for compilation
 
 ## 🚀 Quick Start
 
@@ -139,24 +135,6 @@ npm list -g frida-compile
 deactivate
 ```
 
-## 🛠️ Troubleshooting
-
-### Common Issues
-
-#### Permission Errors During Cleanup
-```
-rm: cannot remove '/tmp/tmpXXX/Python-3.11.0/...': Permission denied
-```
-**Solution**: These are non-critical cleanup warnings. The script continues normally.
-
-#### Python Compilation Takes Long
-**Expected**: Python compilation can take 10-15 minutes depending on your system.
-
-#### frida-compile Version Conflicts
-If you see venv frida-compile in PATH:
-```bash
-# Use system-wide version explicitly
-$(npm bin -g)/frida-compile --version
 ```
 
 ### Logs and Debugging
@@ -194,61 +172,10 @@ After running the script, verify:
 - [ ] System frida-compile exists: `which frida-compile`
 - [ ] System frida-compile version: `npm list -g frida-compile`
 
-## 🔄 Updating
-
-To update or reinstall:
-
-1. **Full reinstall**: Run the script again (it will clean and reinstall)
-2. **Partial update**: Manually update specific components
-
-```bash
-# Update only Frida in venv
-cd ~/Downloads/brida
-source venv/bin/activate
-pip install --upgrade frida==16.7.12
-
-# Update system frida-compile
-sudo npm update -g frida-compile@10.2.5
-```
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test on clean Kali Linux installation
-5. Submit a pull request
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## ⚠️ Disclaimer
 
 This script modifies system packages and compiles software from source. While tested on Kali Linux, use at your own risk. Always review the script before running on production systems.
 
-## 🆘 Support
-
-- **Issues**: Report bugs via GitHub Issues
-- **Discussions**: Use GitHub Discussions for questions
-- **Documentation**: Check this README and script comments
-
-## 📊 Compatibility
-
-| OS | Status | Notes |
-|---|---|---|
-| Kali Linux 2024.x | ✅ Tested | Primary target |
-| Kali Linux 2023.x | ✅ Compatible | Should work |
-| Debian 12+ | 🟡 Untested | May work with modifications |
-| Ubuntu 22.04+ | 🟡 Untested | May work with modifications |
-
-## 🔖 Version History
-
-- **v1.0.0**: Initial release with full automation
-- **v1.1.0**: Added smart version detection
-- **v1.2.0**: Improved error handling and logging
-- **v1.3.0**: Enhanced virtual environment isolation
-
----
 
 **Made with ❤️ for the InfoSec Community**
