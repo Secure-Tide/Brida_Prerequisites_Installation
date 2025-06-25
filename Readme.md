@@ -2,7 +2,8 @@
 
 An automated bash script to set up a complete Brida development environment on Kali Linux with precise version control and proper isolation between virtual environment and system-wide components.
 Setting up Brida is a pain in the ass and starting from the Frida version 17, it has changed a lot according to the frida blog, brida version 0.6 is not compatible with the latest version of frida. 
-So, this script will install the working stable version of python, frida and frida-tools that are well compatible with Brida version 0.6
+So, this script will install the working stable version of python, frida and frida-tools that are well compatible with Brida version 0.6.
+
 Frida API Version Changes - https://frida.re/news/2025/05/17/frida-17-0-0-released/
 
 ## 🎯 What This Script Does
